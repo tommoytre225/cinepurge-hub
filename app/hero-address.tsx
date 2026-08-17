@@ -33,7 +33,14 @@ export function HeroAddress() {
     return () => clearInterval(interval);
   }, []);
 
-  const url = data?.primary || 'https://cinepurge.xyz/';
+  const rawUrl = data?.primary || 'https://cinepurge.xyz/';
+  // Valider que l'URL est bien https:// avant de la rendre cliquable
+  const url = (() => {
+    try {
+      const u = new URL(rawUrl);
+      return u.protocol === 'https:' ? rawUrl : 'https://cinepurge.xyz/';
+    } catch { return 'https://cinepurge.xyz/'; }
+  })();
 
   return (
     <>

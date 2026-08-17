@@ -48,7 +48,11 @@ export function MirrorsList() {
     );
   }
 
-  const allLinks = [data.primary, ...data.mirrors];
+  const safeUrl = (url: string) => {
+    try { const u = new URL(url); return u.protocol === 'https:' ? url : null; }
+    catch { return null; }
+  };
+  const allLinks = [data.primary, ...data.mirrors].filter((u): u is string => safeUrl(u) !== null);
   const maxCols = allLinks.length === 1 ? 1 : allLinks.length === 2 ? 2 : 3;
 
   return (
@@ -56,7 +60,7 @@ export function MirrorsList() {
       <div className={`grid gap-6 ${maxCols === 1 ? 'max-w-md mx-auto' : `md:grid-cols-2 ${maxCols === 3 ? 'lg:grid-cols-3' : ''}`}`}>
         {/* Primary */}
         <a
-          href={data.primary}
+          href={safeUrl(data.primary) ?? '#'}
           target="_blank"
           rel="noopener noreferrer"
           className="card hover:border-[#FF3B30] hover:shadow-lg hover:shadow-[#FF3B30]/20 group"
@@ -76,7 +80,7 @@ export function MirrorsList() {
         {data.mirrors.map((mirror, i) => (
           <a
             key={i}
-            href={mirror}
+            href={safeUrl(mirror) ?? '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="card hover:border-[#FF3B30] hover:shadow-lg hover:shadow-[#FF3B30]/20 group"
