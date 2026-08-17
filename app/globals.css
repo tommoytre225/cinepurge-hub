@@ -17,6 +17,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -28,22 +33,32 @@
   }
 }
 
-@layer utilities {
-  .glass-card {
-    background: rgba(14, 14, 18, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .text-accent {
-    color: #FF3B30;
-  }
-
+@layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-[#FF3B30] text-white font-semibold rounded-lg hover:bg-[#E62B1F] transition-colors duration-200;
+    @apply px-6 py-3 bg-[#FF3B30] text-white font-bold rounded-lg hover:bg-[#E62B1F] active:scale-95 transition-all duration-150;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-transparent text-white font-semibold rounded-lg border border-[rgba(255,59,48,0.2)] hover:border-[#FF3B30] transition-colors duration-200;
+    @apply px-6 py-3 bg-transparent border border-[#FF3B30]/30 text-white font-semibold rounded-lg hover:border-[#FF3B30] transition-colors duration-150;
+  }
+
+  .card {
+    @apply bg-[#0a0a0d] border border-[#1a1a1f] rounded-lg p-6 hover:border-[#FF3B30]/50 transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1f] border border-[#FF3B30]/20 rounded-full text-xs text-[#FF3B30] font-medium;
+  }
+
+  .feature-icon {
+    @apply text-4xl mb-4 block;
+  }
+
+  .stat-value {
+    @apply text-5xl font-black text-[#FF3B30] mb-2;
+  }
+
+  .section-label {
+    @apply text-[#FF3B30] text-xs font-bold uppercase tracking-widest;
   }
 }
