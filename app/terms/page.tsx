@@ -55,7 +55,7 @@ export default function Terms() {
               <li>❌ Les attaques de sécurité (hacking, injections, etc.)</li>
               <li>❌ Le scraping ou l'extraction automatisée de contenu</li>
               <li>❌ La copie ou la reproduction non autorisée</li>
-              <li>❌ Le spamming ou l'abusthon</li>
+              <li>❌ Le spamming ou l'abus</li>
               <li>❌ Toute violation des droits d'autrui</li>
             </ul>
           </div>
@@ -91,20 +91,20 @@ export default function Terms() {
           <div className="border-t border-[#374151] pt-8">
             <h2 className="text-3xl font-bold mb-4">10. Juridiction</h2>
             <p className="text-foreground-muted">
-              Ces conditions sont régies par la loi française. En cas de litige, les tribunaux français sont compétents.
+              Ces conditions sont régies par le droit suisse. En cas de litige, les tribunaux du canton de Zürich, Suisse, sont seuls compétents.
             </p>
           </div>
 
           <div className="border-t border-[#374151] pt-8">
             <h2 className="text-3xl font-bold mb-4">11. Contact</h2>
             <p className="text-foreground-muted">
-              Pour toute question ou réclamation, contactez-nous à <strong>legal@cinepurge.app</strong>.
+              Pour toute question ou réclamation, contactez-nous à <strong>legal@cinepurge.xyz</strong>.
             </p>
           </div>
 
           <div className="glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-8 text-center">
             <p className="text-lg font-semibold mb-2">Dernière mise à jour</p>
-            <p className="text-foreground-muted">{new Date().toLocaleDateString('fr-FR')}</p>
+            <p className="text-foreground-muted">17 août 2026</p>
           </div>
         </div>
       </section>

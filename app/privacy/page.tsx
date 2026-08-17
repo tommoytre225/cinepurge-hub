@@ -53,13 +53,10 @@ export default function Privacy() {
           <div className="border-t border-[#374151] pt-8">
             <h2 className="text-3xl font-bold mb-4">4. Ressources externes</h2>
             <p className="text-foreground-muted mb-4">
-              Ce site utilise <strong>Google Fonts</strong> pour les polices d'écriture.
-            </p>
-            <p className="text-foreground-muted mb-4">
-              Lorsque vous visitez cette page, votre navigateur se connecte directement aux serveurs de Google, qui voient votre adresse IP. <strong>Consultez la politique de confidentialité de Google</strong> pour en savoir plus sur comment ils traitent cette donnée.
+              Ce site n'utilise <strong>aucune ressource externe</strong> (Google Fonts, CDN, analytics tiers). Toutes les polices et assets sont auto-hébergés. Votre navigateur ne se connecte qu'aux serveurs de CinePurge Hub lors de votre visite.
             </p>
             <p className="text-foreground-muted">
-              Nous ne contrôlons pas Google et ne sommes pas responsables de leurs pratiques de données.
+              L'hébergement est assuré par Vercel Inc. (San Francisco, USA), dont les serveurs voient les métadonnées techniques standard de votre requête (adresse IP, user-agent). Consultez la politique de confidentialité de Vercel pour en savoir plus.
             </p>
           </div>
 
@@ -76,7 +73,7 @@ export default function Privacy() {
           <div className="border-t border-[#374151] pt-8">
             <h2 className="text-3xl font-bold mb-4">6. Droits et transparence</h2>
             <p className="text-foreground-muted">
-              Puisque nous ne collectons pas de données personnelles, il n'y a rien à demander, corriger ou supprimer. Si vous avez des questions sur cette politique, contactez-nous à <strong>privacy@cinepurge.app</strong>.
+              Puisque nous ne collectons pas de données personnelles, il n'y a rien à demander, corriger ou supprimer. Si vous avez des questions sur cette politique, contactez-nous à <strong>privacy@cinepurge.xyz</strong>.
             </p>
           </div>
 
@@ -89,7 +86,7 @@ export default function Privacy() {
 
           <div className="glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-8 text-center">
             <p className="text-lg font-semibold mb-2">Dernière mise à jour</p>
-            <p className="text-foreground-muted">{new Date().toLocaleDateString('fr-FR')}</p>
+            <p className="text-foreground-muted">17 août 2026</p>
           </div>
         </div>
       </section>

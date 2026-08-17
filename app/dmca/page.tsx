@@ -30,7 +30,7 @@ export default function DMCA() {
               Si vous pensez qu'une violation de droit d'auteur a lieu, veuillez envoyer un avis DMCA à :
             </p>
             <div className="glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-6 space-y-3">
-              <p><strong>Email :</strong> <span className="text-accent">dmca@cinepurge.app</span></p>
+              <p><strong>Email :</strong> <span className="text-accent">dmca@cinepurge.xyz</span></p>
               <p><strong>Adresse postale :</strong></p>
               <p className="text-foreground-muted">CinePurge Legal Department</p>
               <p className="text-foreground-muted">Paris, France</p>
@@ -85,7 +85,7 @@ export default function DMCA() {
               Si votre contenu a été supprimé suite à une notification DMCA et que vous pensez que c'était une erreur, vous pouvez envoyer un contre-avis à :
             </p>
             <p className="text-foreground-muted glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-              <strong>counter-dmca@cinepurge.app</strong>
+              <strong>counter-dmca@cinepurge.xyz</strong>
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function DMCA() {
 
           <div className="glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-8 text-center">
             <p className="text-lg font-semibold mb-2">Dernière mise à jour</p>
-            <p className="text-foreground-muted">{new Date().toLocaleDateString('fr-FR')}</p>
+            <p className="text-foreground-muted">17 août 2026</p>
           </div>
         </div>
       </section>
