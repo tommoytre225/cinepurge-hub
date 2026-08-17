@@ -8,11 +8,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#FF006E',
-        secondary: '#FB5607',
-        dark: '#0A0E27',
-        surface: '#141829',
-        muted: '#6B7280',
+        accent: '#FF3B30',
+        background: '#070709',
+        'background-card': '#0E0E12',
+        foreground: '#f0f0f2',
+        'foreground-muted': '#999',
+      },
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
     },
   },

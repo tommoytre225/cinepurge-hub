@@ -8,7 +8,7 @@ export default function About() {
       <section className="min-h-[400px] flex items-center justify-center px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">À Propos</h1>
-          <p className="text-xl text-muted">
+          <p className="text-xl text-foreground-muted">
             Découvrez comment fonctionne le hub CinePurge et pourquoi il est essentiel pour votre sécurité.
           </p>
         </div>
@@ -17,11 +17,11 @@ export default function About() {
       {/* Mission */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="section-title mb-8">Notre Mission</h2>
-        <div className="bg-black/50 backdrop-blur border border-[#374151] rounded-lg p-8">
-          <p className="text-lg text-muted leading-relaxed mb-6">
+        <div className="glass-card border border-[rgba(255,255,255,0.08)] rounded-lg p-8">
+          <p className="text-lg text-foreground-muted leading-relaxed mb-6">
             CinePurge Hub existe pour offrir un point d'accès <strong className="text-white">stable, sécurisé et officiel</strong> à notre plateforme de streaming.
           </p>
-          <p className="text-lg text-muted leading-relaxed">
+          <p className="text-lg text-foreground-muted leading-relaxed">
             Avec les changements fréquents de domaine pour des raisons de sécurité et d'accessibilité, ce hub devient votre <strong className="text-white">référence permanente</strong> — l'endroit où vous êtes toujours certain de trouver l'adresse correcte.
           </p>
         </div>
@@ -32,26 +32,26 @@ export default function About() {
         <h2 className="section-title mb-12">Avantages du Hub</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
-            <Shield className="w-12 h-12 text-primary mb-4" />
+          <div className="p-8 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
+            <Shield className="w-12 h-12 text-accent mb-4" />
             <h3 className="font-bold text-xl mb-4">Protection contre les fraudes</h3>
-            <p className="text-muted">
+            <p className="text-foreground-muted">
               Les sites frauduleux et les faux domaines sont courants. Ce hub officiel est votre garantie d'accéder au vrai service.
             </p>
           </div>
 
-          <div className="p-8 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
+          <div className="p-8 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
             <Globe className="w-12 h-12 text-secondary mb-4" />
             <h3 className="font-bold text-xl mb-4">Accessibilité garantie</h3>
-            <p className="text-muted">
+            <p className="text-foreground-muted">
               Même si l'adresse principale change, ce hub reste votre point d'accès unique et stable.
             </p>
           </div>
 
-          <div className="p-8 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
+          <div className="p-8 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
             <Lock className="w-12 h-12 text-[#8B5CF6] mb-4" />
             <h3 className="font-bold text-xl mb-4">Sécurité maximale</h3>
-            <p className="text-muted">
+            <p className="text-foreground-muted">
               Aucune donnée collectée. Aucun cookie. Aucun tracker. Votre vie privée est protégée.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function About() {
               </div>
               <div className="flex-grow">
                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-muted">{item.desc}</p>
+                <p className="text-foreground-muted">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -105,30 +105,30 @@ export default function About() {
         <h2 className="section-title mb-8">Nos Garanties</h2>
 
         <div className="space-y-4">
-          <div className="p-6 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
-            <h4 className="font-bold text-primary mb-2">✓ Informations à jour</h4>
-            <p className="text-muted text-sm">
+          <div className="p-6 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
+            <h4 className="font-bold text-accent mb-2">✓ Informations à jour</h4>
+            <p className="text-foreground-muted text-sm">
               Cette page affiche TOUJOURS l'adresse actuelle de CinePurge, sans cache ni délai.
             </p>
           </div>
 
-          <div className="p-6 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
-            <h4 className="font-bold text-primary mb-2">✓ Aucune collecte de données</h4>
-            <p className="text-muted text-sm">
+          <div className="p-6 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
+            <h4 className="font-bold text-accent mb-2">✓ Aucune collecte de données</h4>
+            <p className="text-foreground-muted text-sm">
               Zéro cookies. Zéro tracking. Zéro collecte personnelle. Consultez notre politique de confidentialité.
             </p>
           </div>
 
-          <div className="p-6 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
-            <h4 className="font-bold text-primary mb-2">✓ Accès direct</h4>
-            <p className="text-muted text-sm">
+          <div className="p-6 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
+            <h4 className="font-bold text-accent mb-2">✓ Accès direct</h4>
+            <p className="text-foreground-muted text-sm">
               Pas de redirects trompeurs, pas de pages publicitaires. Directement à l'adresse officielle.
             </p>
           </div>
 
-          <div className="p-6 bg-black/50 backdrop-blur border border-[#374151] rounded-lg">
-            <h4 className="font-bold text-primary mb-2">✓ Protection légale</h4>
-            <p className="text-muted text-sm">
+          <div className="p-6 glass-card border border-[rgba(255,255,255,0.08)] rounded-lg">
+            <h4 className="font-bold text-accent mb-2">✓ Protection légale</h4>
+            <p className="text-foreground-muted text-sm">
               Consultez nos conditions d'utilisation et notre politique DMCA pour plus de détails.
             </p>
           </div>
