@@ -4,5 +4,11 @@
   "env": {},
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "crons": [
+    {
+      "path": "/api/health-check",
+      "schedule": "0 * * * *"
+    }
+  ]
 }

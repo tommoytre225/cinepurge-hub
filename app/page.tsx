@@ -1,3 +1,5 @@
+import { MirrorsList } from './mirrors-list';
+import { HeroAddress } from './hero-address';
 import { ReportForm } from './report-form';
 
 export default function Home() {
@@ -19,34 +21,19 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Link Box */}
-          <div className="bg-[#0a0a0d] border border-[#333333] rounded-xl p-10 space-y-5 max-w-2xl mx-auto">
-            <div className="space-y-3">
-              <p className="section-label">Adresse actuelle</p>
-              <a
-                href="https://cinepurge.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-4xl font-black text-[#FF3B30] hover:text-[#FF6B50] transition-colors break-all"
-              >
-                https://cinepurge.xyz
-              </a>
-            </div>
+          <HeroAddress />
+        </div>
+      </section>
 
-            <div className="flex gap-4 text-sm text-[#999999] pt-2">
-              <span>✓ Connexion chiffrée</span>
-              <span>✓ Officiel</span>
-            </div>
-
-            <a
-              href="https://cinepurge.xyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary w-full block text-center text-lg py-4 mt-6"
-            >
-              Accéder à CinePurge
-            </a>
+      {/* Access Options (Dynamic Mirrors) */}
+      <section className="py-24 px-4 border-t border-[#333333]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="section-label mb-3">Accès</p>
+            <h2 className="text-5xl font-black">Accéder à CinePurge</h2>
           </div>
+
+          <MirrorsList />
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[#333333]">
