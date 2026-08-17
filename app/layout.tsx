@@ -3,10 +3,10 @@ import './globals.css';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'CinePurge Hub',
-  description: 'Hub officiel de CinePurge. Point d\'accès stable pour l\'adresse actuelle du service.',
-  viewport: 'width=device-width, initial-scale=1',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  title: "CinePurge Hub",
+  description: "Hub officiel de CinePurge. Point d&apos;accès stable pour l&apos;adresse actuelle du service.",
+  viewport: "width=device-width, initial-scale=1",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({

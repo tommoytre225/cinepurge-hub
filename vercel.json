@@ -1,0 +1,8 @@
+{
+  "name": "cinepurge-hub",
+  "version": 2,
+  "env": {},
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install"
+}

@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import { Play, Zap, Shield, Download, Tv } from 'lucide-react';
+import Link from "next/link";
+import { Play, Zap, Shield, Download, Tv } from "lucide-react";
+import { InstallButton } from "./install-button";
 
 export default function Home() {
   return (
@@ -34,16 +35,7 @@ export default function Home() {
               <Play size={20} />
               Accéder à CinePurge
             </a>
-            <button
-              onClick={() => {
-                if ('serviceWorker' in navigator) {
-                  navigator.serviceWorker.register('/sw.js').catch(() => {});
-                }
-              }}
-              className="btn-secondary flex items-center justify-center gap-2"
-            >
-              📱 Installer l'app
-            </button>
+            <InstallButton />
           </div>
 
           {/* Stats */}
