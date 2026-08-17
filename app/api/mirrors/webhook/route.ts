@@ -1,23 +1,41 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createHmac } from 'crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 import { setPrimary, addMirror, addLog, getMirrors, getPrimary } from '@/lib/mirror-store';
 
-const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || 'dev-secret-change-in-prod';
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+if (!WEBHOOK_SECRET || WEBHOOK_SECRET.length < 32) {
+  throw new Error('WEBHOOK_SECRET must be set and at least 32 characters long');
+}
+
 const MAX_MIRRORS = 5;
 const RATE_LIMIT_WINDOW = 60;
 const RATE_LIMIT_MAX = 10;
 
 function verifySignature(payload: string, signature: string): boolean {
-  const hmac = createHmac('sha256', WEBHOOK_SECRET);
+  const hmac = createHmac('sha256', WEBHOOK_SECRET!);
   hmac.update(payload);
   const computed = 'sha256=' + hmac.digest('hex');
-  return computed === signature;
+  try {
+    return timingSafeEqual(Buffer.from(computed, 'utf8'), Buffer.from(signature, 'utf8'));
+  } catch {
+    return false;
+  }
+}
+
+function isSafeUrl(url: string): boolean {
+  try {
+    const u = new URL(url);
+    if (u.protocol !== 'https:') return false;
+    const h = u.hostname.toLowerCase();
+    const blockedPatterns = ['localhost', '127.', '0.0.0.0', '169.254.', '10.', '192.168.', 'metadata.google', 'internal'];
+    return !blockedPatterns.some(p => h.includes(p));
+  } catch { return false; }
 }
 
 function isValidUrl(url: string): boolean {
   try {
     const urlObj = new URL(url);
-    return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';
+    return urlObj.protocol === 'https:';
   } catch {
     return false;
   }
@@ -88,6 +106,13 @@ export async function POST(request: NextRequest) {
     }
 
     const normalizedUrl = url.endsWith('/') ? url : url + '/';
+
+    if (!isSafeUrl(normalizedUrl)) {
+      return NextResponse.json(
+        { error: 'URL not allowed' },
+        { status: 403 }
+      );
+    }
 
     const mirrors = getMirrors();
 
