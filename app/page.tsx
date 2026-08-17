@@ -157,33 +157,24 @@ export default function Home() {
       <section className="py-24 px-4 border-t border-[#333333]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <p className="section-label mb-3">Historique</p>
-            <h2 className="text-5xl font-black">Changements d'adresse</h2>
+            <p className="section-label mb-3">Adresse actuelle</p>
+            <h2 className="text-5xl font-black">La seule source de vérité</h2>
           </div>
 
           <div className="space-y-3">
             <div className="card">
               <div className="flex justify-between items-start">
                 <div>
-                  <p className="font-bold">cinepurge.xyz</p>
-                  <p className="text-[#999999] text-sm">Adresse actuelle</p>
+                  <p className="font-bold text-lg">https://cinepurge.xyz</p>
+                  <p className="text-[#999999] text-sm">Adresse officielle</p>
                 </div>
-                <span className="text-[#FF3B30] text-sm font-bold">ACTIF</span>
-              </div>
-            </div>
-            <div className="card opacity-60">
-              <div className="flex justify-between items-start">
-                <div>
-                  <p className="font-bold text-[#999999]">cinepurge-stream.xyz</p>
-                  <p className="text-[#999999] text-sm">Changée - août 2026</p>
-                </div>
-                <span className="text-[#999999] text-sm font-bold">ANCIEN</span>
+                <span className="text-[#FF3B30] text-sm font-bold">LIVE</span>
               </div>
             </div>
           </div>
 
           <p className="text-[#999999] text-sm mt-8 text-center">
-            Cette page affiche toujours l'adresse la plus récente. Consultez-la régulièrement si vous n'êtes pas sûr.
+            Consultez cette page pour avoir toujours l'adresse correcte. C'est le seul point de repère fiable.
           </p>
         </div>
       </section>
