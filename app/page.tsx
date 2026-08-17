@@ -1,3 +1,5 @@
+import { ReportForm } from './report-form';
+
 export default function Home() {
   return (
     <div className="bg-[#070709] text-white">
@@ -183,6 +185,17 @@ export default function Home() {
           <p className="text-[#999999] text-sm mt-8 text-center">
             Cette page affiche toujours l'adresse la plus récente. Consultez-la régulièrement si vous n'êtes pas sûr.
           </p>
+        </div>
+      </section>
+
+      {/* Report Fake Sites */}
+      <section className="py-24 px-4 border-t border-[#333333]">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="section-label mb-3">Aide-nous</p>
+            <h2 className="text-5xl font-black">Signaler un faux site</h2>
+          </div>
+          <ReportForm />
         </div>
       </section>
 
