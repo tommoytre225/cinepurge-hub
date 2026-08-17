@@ -1,8 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createHmac, timingSafeEqual } from 'crypto';
 import { setPrimary, addMirror, addLog, getMirrors, getPrimary } from '@/lib/mirror-store';
+import Redis from 'ioredis';
 
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+
+// Redis singleton pour rate limiting persistant
+let redis: Redis | null = null;
+function getRedis(): Redis | null {
+  if (!process.env.REDIS_URL) return null;
+  if (!redis) {
+    redis = new Redis(process.env.REDIS_URL, {
+      maxRetriesPerRequest: 1,
+      connectTimeout: 2000,
+      lazyConnect: true,
+      enableOfflineQueue: false,
+    });
+    redis.on('error', () => { redis = null; });
+  }
+  return redis;
+}
 if (!WEBHOOK_SECRET || WEBHOOK_SECRET.length < 32) {
   throw new Error('WEBHOOK_SECRET must be set and at least 32 characters long');
 }
@@ -41,30 +58,36 @@ function isValidUrl(url: string): boolean {
   }
 }
 
+// Fallback in-memory si Redis indisponible
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
-function checkRateLimit(ip: string): boolean {
+async function checkRateLimit(ip: string): Promise<boolean> {
+  const r = getRedis();
+  if (r) {
+    try {
+      const key = `rl:hub:webhook:${ip}`;
+      const count = await r.incr(key);
+      if (count === 1) await r.expire(key, RATE_LIMIT_WINDOW, 'NX');
+      return count <= RATE_LIMIT_MAX;
+    } catch { /* fallback */ }
+  }
+  // In-memory fallback
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
-
   if (!entry || now > entry.resetAt) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW * 1000 });
     return true;
   }
-
-  if (entry.count >= RATE_LIMIT_MAX) {
-    return false;
-  }
-
+  if (entry.count >= RATE_LIMIT_MAX) return false;
   entry.count++;
   return true;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || request.headers.get('x-forwarded-for')?.split(',').pop()?.trim() || 'unknown';
 
-    if (!checkRateLimit(ip)) {
+    if (!await checkRateLimit(ip)) {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
         { status: 429 }
