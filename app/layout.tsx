@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+import { InstallPWA } from './install-pwa';
+
 export default function RootLayout({
   children,
 }: {
@@ -38,14 +40,10 @@ export default function RootLayout({
                   CGU
                 </Link>
               </div>
-              <a
-                href="https://cinepurge.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#FF3B30] hover:bg-[#E62B1F] text-white px-4 py-2 rounded text-sm font-bold transition"
-              >
-                Accéder →
-              </a>
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-[#999999] hidden sm:inline">✓ En ligne</span>
+                <InstallPWA />
+              </div>
             </div>
           </div>
         </nav>

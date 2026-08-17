@@ -122,6 +122,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Security Section */}
+      <section className="py-24 px-4 border-t border-[#333333]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="section-label mb-3">Sécurité</p>
+            <h2 className="text-5xl font-black">Comment vérifier que c'est le vrai site</h2>
+          </div>
+
+          <div className="space-y-4">
+            <div className="card">
+              <p className="font-bold mb-2">✓ Vérifiez l'URL</p>
+              <p className="text-[#999999]">L'adresse officielle est toujours affichée sur cette page.</p>
+            </div>
+            <div className="card">
+              <p className="font-bold mb-2">✓ Mettez en favoris</p>
+              <p className="text-[#999999]">Bookmarkez cette page pour accéder à l'adresse actuelle à tout moment.</p>
+            </div>
+            <div className="card">
+              <p className="font-bold mb-2">✗ Attention aux faux sites</p>
+              <p className="text-[#999999]">Plusieurs contrefaçons existent. Ne faites confiance qu'à l'adresse sur ce hub.</p>
+            </div>
+            <div className="card">
+              <p className="font-bold mb-2">✓ HTTPS sécurisé</p>
+              <p className="text-[#999999]">CinePurge utilise toujours HTTPS. Vérifiez le cadenas dans votre navigateur.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Changelog */}
+      <section className="py-24 px-4 border-t border-[#333333]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="section-label mb-3">Historique</p>
+            <h2 className="text-5xl font-black">Changements d'adresse</h2>
+          </div>
+
+          <div className="space-y-3">
+            <div className="card">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="font-bold">cinepurge.xyz</p>
+                  <p className="text-[#999999] text-sm">Adresse actuelle</p>
+                </div>
+                <span className="text-[#FF3B30] text-sm font-bold">ACTIF</span>
+              </div>
+            </div>
+            <div className="card opacity-60">
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="font-bold text-[#999999]">cinepurge-stream.xyz</p>
+                  <p className="text-[#999999] text-sm">Changée - août 2026</p>
+                </div>
+                <span className="text-[#999999] text-sm font-bold">ANCIEN</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-[#999999] text-sm mt-8 text-center">
+            Cette page affiche toujours l'adresse la plus récente. Consultez-la régulièrement si vous n'êtes pas sûr.
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-[#333333] py-16 px-4 bg-black/30">
         <div className="max-w-7xl mx-auto">
